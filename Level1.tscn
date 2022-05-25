@@ -14,14 +14,14 @@ extents = Vector2( 314.036, 16.2683 )
 [sub_resource type="OccluderPolygon2D" id=2]
 polygon = PoolVector2Array( -24.249, -31.151, 28, -31.151, 29.1875, -30.125, 30.3125, -28.4375, 31.4375, -26.75, 31.8125, -25, 31.751, 32.849, -32.249, 32.849, -32, -24, -31.625, -28.0625, -30.4375, -30.1875, -28.3125, -31.125, -24.249, -31.151 )
 
-[sub_resource type="OccluderPolygon2D" id=3]
+[sub_resource type="OccluderPolygon2D" id=5]
 polygon = PoolVector2Array( -16, -16, -8, -16, 0, -16, 16, -16, 16, 16, -16, 16 )
 
 [node name="Level1" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512, 301.791 )
-scale = Vector2( 7.98792, 4.70376 )
+position = Vector2( 1516.66, 1047.2 )
+scale = Vector2( 23.6857, 16.323 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
@@ -41,8 +41,8 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="floor2" type="StaticBody2D" parent="."]
-position = Vector2( 842.921, 302.823 )
-rotation = -1.57079
+position = Vector2( 1654.28, 405.355 )
+rotation = 0.523598
 __meta__ = {
 "_edit_group_": true
 }
@@ -177,18 +177,16 @@ position = Vector2( 117.892, 387.294 )
 rotation = -1.5708
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 512, 168 )
+position = Vector2( 1292.69, -594.132 )
+scale = Vector2( 2.90882, 6.57856 )
 texture = ExtResource( 3 )
-color = Color( 1, 0.647059, 0.647059, 1 )
+color = Color( 0.984314, 0.988235, 0.988235, 1 )
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 4.4
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Caster" type="Node2D" parent="."]
-position = Vector2( 560, 240 )
+position = Vector2( 1049.99, 136.656 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -198,7 +196,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Caster/Sprite"]
-occluder = SubResource( 3 )
+occluder = SubResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -210,20 +208,78 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shadow"]
-position = Vector2( 516.299, 341.683 )
+position = Vector2( 918.208, 255.363 )
 scale = Vector2( 17.2874, 11.0826 )
-polygon = PoolVector2Array( 3.95934, -6.15398, 6.31439, 13.4786, 17.9793, 13.3237, 18.4757, 13.0871, 21.3327, 13.328, 20.7981, 6.42563, 4.34299, -8.43976, 4.32255, -6.37765 )
+polygon = PoolVector2Array( 3.97875, -6.65465, -2.31121, 18.9842, 5.85637, 13.0862, 9.46378, -7.81442, 5.90705, -7.87213, 5.63158, -13.1002 )
 
 [node name="PauseMenu" type="Control" parent="."]
 pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="floor4" type="StaticBody2D" parent="."]
+light_mask = 7
+position = Vector2( 1109.23, 368.485 )
+rotation = 2.66686
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="floor4"]
+scale = Vector2( 9.81292, 0.507843 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor4"]
+shape = SubResource( 1 )
+
+[node name="floor5" type="StaticBody2D" parent="."]
+position = Vector2( 2227.87, 579.708 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="floor5"]
+scale = Vector2( 9.81292, 0.507843 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor5"]
+shape = SubResource( 1 )
+
+[node name="Caster2" type="Node2D" parent="."]
+position = Vector2( 1657.59, 206.146 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Caster2"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Caster2/Sprite"]
+occluder = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Shadow2" type="Area2D" parent="." groups=[
+"Shadow",
+]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shadow2"]
+position = Vector2( 1564, 314.956 )
+scale = Vector2( 17.2874, 11.0826 )
+polygon = PoolVector2Array( 3.58195, -6.73217, 7.62222, 8.73706, 17.1719, 17.1162, 8.95367, -7.01864, 7.34676, -12.3899, 7.39763, -6.93566 )
 
 [connection signal="about_to_show" from="Player/CanvasLayer/PausePopup" to="Player/CanvasLayer/PausePopup/ColorRect/pauseOptions/PauseResumeButton" method="_on_PausePopup_about_to_show"]
 [connection signal="pressed" from="Player/CanvasLayer/PausePopup/ColorRect/pauseOptions/PauseResumeButton" to="Player/CanvasLayer/PausePopup/ColorRect/pauseOptions/PauseResumeButton" method="_on_PauseResumeButton_pressed"]
 [connection signal="pressed" from="Player/CanvasLayer/PausePopup/ColorRect/pauseOptions/PauseQuitButton" to="Player/CanvasLayer/PausePopup/ColorRect/pauseOptions/PauseResumeButton" method="_on_PauseQuitButton_pressed"]
 [connection signal="body_entered" from="Shadow" to="Player" method="_on_Shadow_body_entered"]
 [connection signal="body_exited" from="Shadow" to="Player" method="_on_Shadow_body_exited"]
+[connection signal="body_entered" from="Shadow2" to="Player" method="_on_Shadow_body_entered"]
+[connection signal="body_exited" from="Shadow2" to="Player" method="_on_Shadow_body_exited"]
